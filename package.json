@@ -1,0 +1,12 @@
+{
+  "name": "promise-class-factory",
+  "version": "0.0.1",
+  "description": "factory for creating promised classes",
+  "main": "app.js",
+  "start": "node app.js",
+  "dependencies": {
+  },
+  "author": "Jim Manton",
+  "email": "jrman@risebroadband.net",
+  "license": "ISC"
+}
