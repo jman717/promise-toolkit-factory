@@ -20,6 +20,7 @@ npm install promise-toolkit-factory
 
 Functions in the factory follow this format:
 
+```javascript
 class exampleC{
 	func1(json_object){
 		return json_object;
@@ -29,18 +30,22 @@ class exampleC{
 		return json_object;
 	}
 }
+```
 
 The following example would have this setup:
 
-	var exC = new exampleC();
+```javascript
+var exC = new exampleC();
 
-	....
-					.appender('classes', {"objs": [{"name": "c1", "obj": exC}])
-					.appender('functions', {"flow": 1, "map": ["c1.func1", "c1.func2"]})
-	....
+....
+	.appender('classes', {"objs": [{"name": "c1", "obj": exC}])
+	.appender('functions', {"flow": 1, "map": ["c1.func1", "c1.func2"]})
+....
+```
 
 Values can be passed from one function, or to all functions in any particular flow, as:
 
+```javascript
 class exampleC{
 	func1(json_object){
 		json_object.new_value = 4;
@@ -53,12 +58,14 @@ class exampleC{
 		return json_object;
 	}
 }
+```
 
 The error will throw back to the latest promise which will catch and return a reject for that promise.
 
-Usage Sample 1
+## Usage Sample 1
+
 This defines 2 class objects and 4 function flows. Each flow is done in sequence, with a json object passed to each subsequence function. A fork can simply be values passed to the appropriate flow.
----------
+
 ```js
 var log4js = require("log4js")
 		,log4js_tagline = require("log4js-tagline");
@@ -83,6 +90,7 @@ var log4js = require("log4js")
 
 With multiple flows, skip_to_flow bypasses any further processing to go directly to the indicated flow. 
 
+```js
 class exampleC{
 	func1(json_object){
 		json_object.new_value = 4;
@@ -95,14 +103,17 @@ class exampleC{
 		return json_object;
 	}
 }
+```		
 
 The error will throw back to the latest promise which will catch and return a reject for that promise.
 		
 
-Usage Sample 2
+## Usage Sample 2
+
 This defines 2 class objects and 4 function flows from above but no file logging is defined. 
----------
+
 ```js
+
 const ptf = require("promise-toolkit-factory");
 
 var f1 = require('./lib/factory/promise_test1')
@@ -122,4 +133,5 @@ var toolkit = new ptf().appender('vars', {"globals": {"any":"values"}})
 	.run();
 
 console.log("test complete");
+
 ```		

@@ -1,77 +1,25 @@
-var expect = require("chai").expect,
-    log4js = require("log4js"),
-    log4js_extend = require("./log4js-extend"),
-    path = require("path"),
-    vm = require("vm");
 
-log4js_extend(log4js, {
-  path: null,
-  format: "at @name (@file:@line:@column)"
-});
+/*
+* @author Jim Manton: jrman@risebroadband.net
+* @since 2018-01-08
+*/
 
-describe("Logging", function () {
-  var result = [];
+const ptf = require("promise-toolkit-factory");
 
-  before(function () {
-    log4js.configure({
-      adapters: []
-    });
-    log4js.addAppender(function () {
-      result = arguments[0].data.join(" ");
-    });
-  });
+var f1 = require('./lib/factory/promise_test1')
+		,f2 = require('./lib/factory/promise_test2');
 
-  it("No Scope", function () {
-    var log = log4js.getLogger("category");
+var f1o = new f1()
+		,f2o = new f2();
 
-    log.info("test");
-    expect(result).to.equal("test at <anonymous> (" + __filename + ":27:9)");
-  });
+var toolkit = new ptf().appender('vars', {"globals": {"any":"values"}})
+	.appender('classes', {"objs": [{"name": "f1o", "obj": f1o}, {"name": "f2o", "obj": f2o}]})
+	.appender('functions', {"flow": 1, "map": ["f1o.init", "f2o.process", "f1o.step1", "f1o.step4", "f2o.set_init_opts"]})
+	.appender('functions', {"flow": 2, "map": ["f1o.init", "f1o.step2", "f1o.step5"]})
+	.appender('functions', {"flow": 3, "map": ["f1o.init", "f1o.finish"]})
+	.appender('functions', {"flow": 4, "map": ["f1o.init", "f1o.do_this"]})
+	.appender('promises', {"flows":[1, 2, 3]})
+	.appender('promises', {"flows":[4]})
+	.run();
 
-  it("In Scope", function () {
-    var log = log4js.getLogger("category");
-
-    !function scope() {
-      log.info("test");
-    }();
-    expect(result).to.equal("test at scope (" + __filename + ":35:11)");
-  });
-
-  it("In Object", function () {
-    var log = log4js.getLogger("category");
-
-    !{
-      method: function scope() {
-        log.info("test");
-      }
-    }.method();
-    expect(result).to.equal("test at method (" + __filename + ":45:13)");
-  });
-
-  it("Relative Path", function () {
-    log4js_extend(log4js, {
-      path: __dirname
-    });
-    var log = log4js.getLogger("category");
-
-    log.info("test");
-    expect(result).to.equal("test at <anonymous> (" + path.relative(__dirname, __filename) + ":57:9)");
-  });
-
-  it("No Options", function () {
-    log4js_extend(log4js);
-    var log = log4js.getLogger("category");
-
-    log.info("test");
-    expect(result).to.equal("test at <anonymous> (" + __filename + ":65:9)");
-  });
-
-  it("trace.file empty", function () {
-    log4js_extend(log4js);
-    var log = log4js.getLogger("category");
-
-    var ctx = vm.createContext({log: log});
-    vm.runInContext("log.info(\"test\")", ctx, "");
-    expect(result).to.equal("test at <anonymous> (:1:5)");
-  });
-});
+console.log("test complete");

@@ -1,7 +1,7 @@
 {
-  "name": "promise-class-factory",
+  "name": "promise-toolkit-factory",
   "version": "0.0.1",
-  "description": "factory for creating promised classes",
+  "description": "factory for creating promised function flows",
   "main": "app.js",
   "start": "node app.js",
   "dependencies": {
