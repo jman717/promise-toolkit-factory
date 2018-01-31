@@ -78,6 +78,8 @@ module.exports = class promise_toolkit_factory{
 		var t = this;
 		var a = t.appenders, z;
 		try{
+			if(typeof jo === 'undefined')
+				throw new Error('jo is undefined');
 			if(typeof jo.vars === 'undefined')
 				throw new Error('jo.vars is undefined');
 			t.log({"type":"trace", "text": "run()", "classO":"promise_toolkit_factory.getVars", "file":"app.js"});			

@@ -1,6 +1,6 @@
 {
   "name": "promise-toolkit-factory",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "factory for creating promised function flows",
   "main": "app.js",
   "start": "node app.js",
