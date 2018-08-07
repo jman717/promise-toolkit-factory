@@ -21,7 +21,7 @@ module.exports = class promise_toolkit_factory{
 				var a = t.appenders_dir + name + '.js';
 				var x = require(a);
 				t.appenders.push(new x(t).config(conf).init());
-				t.log({"type":"trace", "text": "file loading=" + a, "classO":"promise_toolkit_factory.appender", "file":"app.js"});
+				t.log({"type":"trace", "text": "file loading = " + a, "classO":"promise_toolkit_factory.appender", "file":"app.js"});
 			}
 			return t;
 		}catch(e){
