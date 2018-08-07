@@ -6,6 +6,6 @@
   "start": "node app.js",
   "dependencies": {},
   "author": "Jim Manton",
-  "email": "jrman@risebroadband.net",
+  "email": "jim.manton@skybeam.com",
   "license": "ISC"
 }
