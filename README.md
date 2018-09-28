@@ -7,7 +7,7 @@ Included appenders:
 * functions - Create your map of functions and how you wish to form a flow.
 * promises - How do you wish your flows to execute. Create as many or as few flows as necessary to run any micro-service.
 * vars - Define variables which can be used throughout all your functions in all your classes.
-* logging - Log4js-tagline is another one of my packages and I use it in the samples below. If you have a preference for another logging package the logging appender can be modified to suite your needs.
+* logging - Log4js-tagline is another one of my packages and I use it in the samples below. It now incorporates stack_utils to find the file stack information without explicit references, although both methods are supported.
 
 Installation
 ---------
