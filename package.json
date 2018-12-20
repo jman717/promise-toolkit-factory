@@ -1,11 +1,13 @@
 {
   "name": "promise-toolkit-factory",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "factory for creating promised function flows",
   "main": "app.js",
   "start": "node app.js",
   "dependencies": {
-    "stack-utils": "^1.0.1"
+    "stack-utils": "^1.0.1",
+    "log4js-tagline": "^1.6.2",
+    ""
   },
   "author": "Jim Manton",
   "email": "jim.manton@skybeam.com",

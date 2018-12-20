@@ -12,8 +12,6 @@ Included appenders:
 Installation
 ---------
 ```
-npm install log4js
-npm install log4js-tagline
 npm install promise-toolkit-factory
 
 ```
