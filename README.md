@@ -92,6 +92,15 @@ var log4js = require("log4js")
 			.appender('promises', {"flows":[1, 2, 3]})
 			.appender('promises', {"flows":[4]})
 			.run();
+
+		var toolkit = new ptf().appender('logging', {"type": "log4js-tagline", "log": t.log, "logger": t.logger})
+			.appender('vars', {"globals": mp, "local": {"total": 0}})
+			.appender('class', {"obj": {"name": "f1o", "obj": f1o}})
+			.appender('cron', {"name": "cron", "schedule": "* * * * * *")
+			.appender('function', {"name", "flo.init", "params": {}}).on("success", function({ data }){
+				}).on("error", function({ err }){
+					err.describe()
+				})
 ```		
 
 With multiple flows, skip_to_flow bypasses any further processing to go directly to the indicated flow. 
