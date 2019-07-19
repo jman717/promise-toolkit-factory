@@ -1,19 +1,27 @@
 {
   "name": "promise-toolkit-factory",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "description": "factory for creating promised function flows",
   "main": "app.js",
   "start": "node app.js",
   "dependencies": {
     "stack-utils": "^1.0.2",
-    "log4js-tagline": "^2.1.14"
+    "log4js-tagline": "^2.1.15"
   },
+  "keywords": [
+    "logging",
+    "log",
+    "log4js-tagline",
+    "appenders",
+    "node",
+    "promise",
+    "factory"
+  ],
   "homepage": "https://github.com/jman717/promise-toolkit-factory",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jman717/promise-toolkit-factory.git"
   },
-
   "author": "Jim Manton",
   "email": "jim.manton@skybeam.com",
   "license": "ISC"
