@@ -4,7 +4,7 @@
 * @since 2018-01-08
 */
 
-const ptf = require("promise-toolkit-factory");
+const ptf = require("./app.js");
 
 var f1 = require('./lib/factory/promise_test1')
 		,f2 = require('./lib/factory/promise_test2');
