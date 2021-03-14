@@ -1,12 +1,12 @@
 {
   "name": "promise-toolkit-factory",
-  "version": "0.0.28",
+  "version": "0.0.29",
   "description": "factory for creating promised function flows",
   "main": "app.js",
   "start": "node app.js",
   "dependencies": {
-    "stack-utils": "^1.0.2",
-    "log4js-tagline": "^2.3.3"
+    "stack-utils": "^2.0.3",
+    "log4js-tagline": "^2.3.8"
   },
   "keywords": [
     "logging",
