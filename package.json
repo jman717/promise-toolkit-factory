@@ -1,12 +1,12 @@
 {
   "name": "promise-toolkit-factory",
-  "version": "0.0.29",
-  "description": "factory for creating promised function flows",
+  "version": "1.0.0",
+  "description": "Under a promise structure, map functions to create flows free from callbacks; the factory class objects are then lightweight decoupled objects for any new micro-service arrangement.",
   "main": "app.js",
   "start": "node app.js",
   "dependencies": {
     "stack-utils": "^2.0.3",
-    "log4js-tagline": "^2.3.8"
+    "log4js-tagline": "^5.4.0"
   },
   "keywords": [
     "logging",
@@ -17,6 +17,11 @@
     "promise",
     "factory"
   ],
+  "scripts": {
+    "start": "node app.js",
+    "test_a": "node ./tests/a",
+    "test_b": "node ./tests/b"
+  },
   "homepage": "https://github.com/jman717/promise-toolkit-factory",
   "repository": {
     "type": "git",
