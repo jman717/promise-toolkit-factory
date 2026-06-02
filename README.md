@@ -1,4 +1,4 @@
-[![npm Package](https://img.shields.io/npm/v/log4js-tagline.svg)](https://www.npmjs.org/package/promise-toolkit-factory)
+[![npm Package](https://img.shields.io/npm/v/promise-toolkit-factory.svg)](https://www.npmjs.org/package/promise-toolkit-factory)
 [![License](https://img.shields.io/npm/l/promise-toolkit-factory.svg)](https://github.com/jman717/promise-toolkit-factory/blob/master/LICENSE)
 [![CodeQL](https://github.com/jman717/promise-toolkit-factory/actions/workflows/actions.yml/badge.svg)](https://github.com/jman717/promise-toolkit-factory/actions/workflows/actions.yml)
 [![Node.js CI](https://github.com/jman717/promise-toolkit-factory/actions/workflows/node.js.yml/badge.svg)](https://github.com/jman717/promise-toolkit-factory/actions/workflows/node.js.yml)
