@@ -26,4 +26,6 @@ General Setup Tests.
 ```		
 npm run test_a
 npm run test_b
+npm run test_c
+npm run test_d
 ```		

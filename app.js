@@ -20,12 +20,12 @@ module.exports = class promise_toolkit_factory {
 			if (typeof eval('t.' + name) === 'undefined') {
 				var a = t.appenders_dir + name + '.js';
 				var x = require(a);
-				t.appenders.push(new x(t).config(conf).init());
+				t.appenders.push(new x(t).config(conf).init())
 				t.log({ "type": "trace", "text": "file loading=" + a, "classO": "promise_toolkit_factory.appender", "file": "app.js" });
 			}
 			return t;
 		} catch (e) {
-			console.log('appenders error: ' + e.message);
+			console.log('appenders error: ' + e.message)
 		}
 	}
 
@@ -75,18 +75,18 @@ module.exports = class promise_toolkit_factory {
 	}
 
 	getVars(jo) {
-		var t = this;
-		var a = t.appenders, z;
+		var t = this
+		var a = t.appenders, z
 		try {
 			if (typeof jo === 'undefined')
 				throw new Error('jo is undefined');
 			if (typeof jo.vars === 'undefined')
 				throw new Error('jo.vars is undefined');
-			t.log({ "type": "trace", "text": "run()", "classO": "promise_toolkit_factory.getVars", "file": "app.js" });
-			for (z = 0; z < a.length; z++)
+			for (z = 0; z < a.length; z++) {
 				if (a[z].oname === 'vars')
 					if (typeof a[z].conf[jo.vars] !== 'undefined')
 						return a[z].conf[jo.vars];
+			}
 			throw new Error("cannot find vars(" + jo.vars + ").");
 		} catch (e) {
 			t.log({ "type": "error", "text": "error: " + e.message, "classO": "promise_toolkit_factory.getFlow", "file": "app.js" });

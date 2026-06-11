@@ -5,7 +5,7 @@
   "main": "app.js",
   "start": "node app.js",
   "dependencies": {
-    "stack-utils": "^2.0.3",
+    "stack-utils": "^3.0.0",
     "log4js-tagline": "^5.4.0"
   },
   "keywords": [
@@ -20,7 +20,9 @@
   "scripts": {
     "start": "node app.js",
     "test_a": "node ./tests/a",
-    "test_b": "node ./tests/b"
+    "test_b": "node ./tests/b",
+    "test_c": "node ./tests/c",
+    "test_d": "node ./tests/d"
   },
   "homepage": "https://github.com/jman717/promise-toolkit-factory",
   "repository": {
