@@ -63,14 +63,64 @@ module.exports = class promise_toolkit_factory {
 		try {
 			if (typeof jo.flow === 'undefined')
 				throw new Error('jo.flow is undefined');
-			t.log({ "type": "trace", "text": "run()", "classO": "promise_toolkit_factory.getFlowAppender", "file": "app.js" });
+			t.log({ "type": "trace", "text": "getFlowAppender", "classO": "promise_toolkit_factory.getFlowAppender", "file": "app.js" });
 			for (z = 0; z < a.length; z++)
 				if (a[z].oname === 'functions')
 					if (a[z].conf.flow === jo.flow)
 						return a[z];
 			throw new Error("cannot find flow(" + jo.flow + ").");
 		} catch (e) {
-			t.log({ "type": "error", "text": "error: " + e.message, "classO": "promise_toolkit_factory.getFlow", "file": "app.js" });
+			t.log({ "type": "info", "text": "error: " + e.message, "classO": "promise_toolkit_factory.getFlow", "file": "app.js" })
+			throw e
+		}
+	}
+
+	find_function(f) {
+		var t = this;
+		var a = t.appenders, z, q
+		try {
+			t.log({ "type": "trace", "text": `find_function=${f}`, "classO": "promise_toolkit_factory.find_function", "file": "app.js" });
+			for (z = 0; z < a.length; z++) {
+				if (a[z].oname === 'functions') {
+					t.log({ "type": "trace", "text": `find_function 101 ${f} length(${a[z].conf.map.length})`, "classO": "promise_toolkit_factory.find_function", "file": "app.js" });
+					for (q = 0; q < a[z].conf.map.length; q++) {
+						t.log({ "type": "trace", "text": `find_function map ${a[z].conf.map[q]}=${f}`, "classO": "promise_toolkit_factory.find_function", "file": "app.js" });
+						if (a[z].conf.map[q] == f) {
+							t.log({ "type": "trace", "text": `find_function map 101 ${a[z].funcA.length}`, "classO": "promise_toolkit_factory.find_function", "file": "app.js" });
+							return a[z].funcA[q]
+						}
+					}
+				}
+			}
+			throw new Error(`cannot find function(${f})`)
+		} catch (e) {
+			t.log({ "type": "info", "text": "error: " + e.message, "classO": "promise_toolkit_factory.find_function", "file": "app.js" })
+			throw e
+		}
+	}
+
+	return_shift_function(f) {
+		var t = this;
+		var a = t.appenders, z, q
+		try {
+			t.log({ "type": "trace", "text": `find_function=${f}`, "classO": "promise_toolkit_factory.find_function", "file": "app.js" });
+			for (z = 0; z < a.length; z++) {
+				if (a[z].oname === 'functions') {
+					t.log({ "type": "trace", "text": `find_function 101 ${f} length(${a[z].conf.map.length})`, "classO": "promise_toolkit_factory.find_function", "file": "app.js" });
+					for (q = 0; q < a[z].conf.map.length; q++) {
+						// t.log({ "type": "trace", "text": `find_function map ${a[z].conf.map[q]}=${f} length(${a[z].conf.map.length})`, "classO": "promise_toolkit_factory.find_function", "file": "app.js" });
+						if (a[z].conf.map[q] == f) {
+							t.log({ "type": "trace", "text": `find_function map 101 ${a[z].funcA.length} q(${q})`, "classO": "promise_toolkit_factory.find_function", "file": "app.js" });
+							a[z].conf.map.shift()
+							return a[z].funcA.shift()
+						}
+					}
+				}
+			}
+			throw new Error(`cannot find function(${f})`)
+		} catch (e) {
+			t.log({ "type": "info", "text": "error: " + e.message, "classO": "promise_toolkit_factory.find_function", "file": "app.js" })
+			throw e
 		}
 	}
 
@@ -95,15 +145,19 @@ module.exports = class promise_toolkit_factory {
 
 	find_class(s) {
 		var t = this;
-		var z, y, a = t.appenders, ob;
+		var z, y, a = t.appenders, ob, fa0, fa1, fa
 		try {
-			t.log({ "type": "trace", "text": "looking for class(" + s + ')', "classO": "promise_toolkit_factory.find_class", "file": "app.js" });
+			fa = s.split('.');
+			fa0 = fa[0];
+			fa1 = fa[1];
+
+			t.log({ "type": "trace", "text": "looking for class(" + fa0 + ')', "classO": "promise_toolkit_factory.find_class", "file": "app.js" });
 			for (z = 0; z < a.length; z++) {
 				if (a[z].oname === 'classes') {
 					ob = a[z].conf.objs;
 					for (y = 0; y < ob.length; y++) {
-						if (s === ob[y].name) {
-							t.log({ "type": "debug", "text": "function(" + s + ")=(" + ob[y].name + ") confirmed", "classO": "functions.init", "file": "functions.js" });
+						if (fa0 === ob[y].name) {
+							t.log({ "type": "debug", "text": `function confirmed(${fa0})=(${ob[y].name}) obj(${JSON.stringify(ob[y].obj)})`, "classO": "functions.init", "file": "functions.js" });
 							return ob[y].obj;
 						}
 					}

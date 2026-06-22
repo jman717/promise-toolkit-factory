@@ -7,6 +7,6 @@ var f2o = new f2();
 var toolkit = new ptf().appender('tagline')
     .appender('vars', {"globals": {"some_var":"use_this_variable"}, "local": {"total": 0}})
     .appender('classes', {"objs": [{"name": "f1o", "obj": f1o}, {"name": "f2o", "obj": f2o}]})
-    .appender('functions', {"flow": 1, "map": ["f1o.init", "f2o.process", "f1o.step1", "f1o.step4", "f2o.set_init_opts"]})
+    .appender('functions', {"flow": 1, "map": ["f1o.do_this"]})
     .appender('promises', {"flows":[1]})
     .run();
