@@ -1,6 +1,6 @@
 {
   "name": "promise-toolkit-factory",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Under a promise structure, map functions to create flows free from callbacks; the factory class objects are then lightweight decoupled objects for any new micro-service arrangement.",
   "main": "app.js",
   "start": "node app.js",

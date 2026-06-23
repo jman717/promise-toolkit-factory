@@ -143,6 +143,25 @@ module.exports = class promise_toolkit_factory {
 		}
 	}
 
+	setVars(jo) {
+		var t = this
+		var a = t.appenders, z
+		try {
+			if (typeof jo === 'undefined')
+				throw new Error('jo is undefined');
+			if (typeof jo.vars === 'undefined')
+				throw new Error('jo.vars is undefined');
+			for (z = 0; z < a.length; z++) {
+				if (a[z].oname === 'vars')
+					if (typeof a[z].conf[jo.vars] !== 'undefined')
+						a[z].conf[jo.vars] = jo
+			}
+			throw new Error("cannot find vars(" + jo.vars + ").");
+		} catch (e) {
+			t.log({ "type": "error", "text": "error: " + e.message, "classO": "promise_toolkit_factory.getFlow", "file": "app.js" });
+		}
+	}
+
 	find_class(s) {
 		var t = this;
 		var z, y, a = t.appenders, ob, fa0, fa1, fa
